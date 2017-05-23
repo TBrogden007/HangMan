@@ -1,44 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Hangman Game</title>
-
-      <script type='text/javascript' src='https://code.jquery.com/jquery-2.2.0.min.js'></script>
-      
-      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-      <script src="assets/javascript/logic.js"></script>
-      <link href="https://fonts.googleapis.com/css?family=Bungee+Outline|Orbitron|Play|Varela+Round|Vollkorn" rel="stylesheet">
-  </head>
-
-<style>
-  
-
-    
-
-</style>
-
-  <body>
-
-  <div class="intro">
-    <h1>STAR WARS Hangman Game</h1>
-    <h2>Words are random nouns, pronouns and adjectives related to Star Wars.</h2>
-    <h3>Good Luck, Have Fun</h3>
-    <h4 class="tag1">Click on a letter to guess</h4>
-    <h4 class="tag2"> </h4>
-    <h4 class="tag3">Save him Obi Wan Kenobi... You're his only hope</h4>
-  </div>
-
-    <div id="man">
-          </div>
-    <div id="wordDisplay">
-          </div>
-    <div id="action">
-          </div>
-<br>
-<div style="clear: both" id="keyboard"></div>
-    
-  
-<script type='text/javascript'>     // Begin Step 1 code- variables
+     // Begin Step 1 code- variables
 var input = $("#input"); // text area for input
 var man = $("#man"); // Hangman drawing
 var wordDisplay = $("#wordDisplay"); // partial word display
@@ -77,7 +37,7 @@ function createKeyboard(alphabet) {
     key.html(letter);
     keyboard.append(key);
     if ( i%9 === 8 ){
-      keyboard.append(" ");
+      keyboard.append("<br>");
     }
   }
   
@@ -110,7 +70,7 @@ function guess(letter) {
   if (guesses > hangmanArt.length) {
     document.write("<h1>He's Dead....Game Over press (f5) to play again!</h1>");
   } else if (isSolved()) {
-    alert("Winner!   Game Over press (f5) to play again!");
+    action.html("<h1>Winner</h1>");
   }
 
 }
@@ -154,8 +114,4 @@ function makeWordString() { // if i dont do this it keeps giving me undefined an
 createKeyboard(alphabet);
 createWord(wordlist[Math.floor(Math.random() * wordlist.length)]);
 drawMan();
-drawWord();</script>
-
-  </body>
-  
-  </html>
+drawWord();
